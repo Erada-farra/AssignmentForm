@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #E2DCD0;
+        margin: 0;
+        padding: 30px;
+    }
+
+    .container {
+        background: white;
+        max-width: 600px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px #94A5B3;
+    }
+
+    h2 {
+        text-align: center;
+        color: #71713B;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 7px;
+        font-weight: bold;
+        color: #71713B;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #94A5B3;
+        border-radius: 5px;
+        background-color: #FAF9F6;
+    }
+
+    input:focus {
+        outline: none;
+        border: 2px solid #71713B;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #71713B;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #5D5D30;
+    }
+
+    .back {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        color: #94A5B3;
+        text-decoration: none;
+    }
+
+    .back:hover {
+        color: #71713B;
+    }
+
+    .errorlist {
+        color: #B23A35;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Student Registration Form</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Student</button>
+    </form>
+    <a href="{% url 'student_list' %}" class="back">
+        Back to Students List
+    </a>
+</div>
+</body>
+</html>
